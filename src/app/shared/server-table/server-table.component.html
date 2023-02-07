@@ -1,0 +1,40 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Server Name</th>
+      <th>Server Port</th>
+      <th>Server URL</th>
+      <th>Server Last update</th>
+      <th>Server Status</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="filteredServers.length === 0">
+    <tr *ngFor="let server of servers;let i = index">
+      <td>{{i+1}}</td>
+      <td>{{server.name}}</td>
+      <td>{{server.port}}</td>
+      <td><a href="https://{{server.name}}:{{server.port}}">https://{{server.name}}:{{server.port}}</a></td>
+      <td>{{server.lastUpdate}}</td>
+      <td>
+        <button class="btn" [ngClass]="server.status === 0 ? 'btn-danger' : 'btn-success'" (click)="serverStatusUpdated(server)">
+          {{server.status === 0 ? 'Offline' : 'Online'}}
+        </button>
+      </td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="filteredServers.length !== 0">
+    <tr *ngFor="let server of filteredServers;let i = index">
+      <td>{{i+1}}</td>
+      <td>{{server.name}}</td>
+      <td>{{server.port}}</td>
+      <td><a href="https://{{server.name}}:{{server.port}}">https://{{server.name}}:{{server.port}}</a></td>
+      <td>{{server.lastUpdate}}</td>
+      <td>
+        <button class="btn" [ngClass]="server.status === 0 ? 'btn-danger' : 'btn-success'" (click)="serverStatusUpdated(server)">
+          {{server.status === 0 ? 'Offline' : 'Online'}}
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

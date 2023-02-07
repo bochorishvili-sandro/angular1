@@ -1,0 +1,14 @@
+section{
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 50px;
+  margin: auto;
+
+  .buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}

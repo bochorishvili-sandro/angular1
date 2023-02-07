@@ -1,0 +1,17 @@
+<section>
+  <app-server-form *ngIf="showForm" (serverAddEmitter)="onServerItemAdded($event)" [disabled]="filterValue.length !== 0"></app-server-form>
+  <div class="buttons">
+    <button (click)="clearServers()" [disabled]="filterValue.length !== 0" class="btn btn-danger">Clear</button>
+    <button (click)="toggleServers(0)"[disabled]="filterValue.length !== 0"  class="btn btn-warning">Deactive</button>
+    <button (click)="toggleServers(1)" [disabled]="filterValue.length !== 0"  class="btn btn-success">Active</button>
+    <button (click)="toggleForm()" [disabled]="filterValue.length !== 0"  class="btn btn-primary">Toggle form</button>
+    <button (click)="fillServers(10,0)" [disabled]="filterValue.length !== 0" class="btn btn-primary">Fill 10 servers</button>
+    <button (click)="removeServers(10)" [disabled]="filterValue.length !== 0" class="btn btn-primary">Remove 10 servers</button>
+    <button (click)="toggleEven(0)" [disabled]="filterValue.length !== 0" class="btn btn-primary">Deactive even servers</button>
+    <button (click)="toggleEven(1)" [disabled]="filterValue.length !== 0" class="btn btn-primary">Active even servers</button>
+    <button (click)="filterServers(0)" class="btn btn-primary">Show Offline</button>
+    <button (click)="filterServers(1)" class="btn btn-primary">Show Online</button>
+    <button (click)="clearFilter()" class="btn btn-primary">Show current</button>
+  </div>
+  <app-server-table (serversUpdatedEmit)="serversUpdated($event)" [servers]="servers" [filteredServers]="filterValue"></app-server-table>
+</section>

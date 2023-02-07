@@ -1,0 +1,21 @@
+<article>
+  <h1>Server information</h1>
+  <div class="form-group">
+    <label class="form-label" for="name">Enter server name</label>
+    <input [(ngModel)]="serverTemp.name" type="text" placeholder="Enter here" class="form-control">
+  </div>
+  <div class="form-group">
+    <label class="form-label" for="port">Enter server port</label>
+    <input [(ngModel)]="serverTemp.port" type="text" placeholder="Enter here" class="form-control">
+  </div>
+  <div class="form-group">
+    <label class="form-label" for="status">Enter server status</label>
+    <select [(ngModel)]="serverTemp.status" class="form-control">
+      <option value="0" selected>Offline</option>
+      <option value="1">Online</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <button [disabled]="disabled" class="btn btn-primary" (click)="onSubmit()">Save</button>
+  </div>
+</article>
